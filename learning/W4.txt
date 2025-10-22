@@ -1,0 +1,8 @@
+3 tầng:
+- UI: namespace giao diện biểu diễn tương tác với user -> ví dụ như fromString, toString, xuất phân số/ point
+- bus: namespace logic nghiệp vụ để tính toán 
+- dto: class như phân số/ point 
+- /docs viết bằng tiếng việt
+- /test tạo unit tests dùng google test
+- this->_x: truy cập vào _x của class đang viết, dùng trong các hàm như get 
+- Cấu trúc 1 regex đơn giản cho phân số: R"(^-?\d+/-?\d+$)" -> R đứng đầu, ở trong có 1 ngoặc, ^ và $ để chuỗi bên trong, -?\d+ là cho số cả âm và dương

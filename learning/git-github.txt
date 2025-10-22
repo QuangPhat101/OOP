@@ -1,0 +1,11 @@
+*Tạo 1 dự án theo thứ tự*
+- git init: tạo dự án
+- git add. : add các thư mục lên github 
+- git commit -m "việc đã làm"
+- git remote add origin "link github đã tạo"
+- git push -u origin master 
+--> Nếu làm tiếp thì chỉ cần bỏ bước 1 
+*Các câu lệnh khác*
+- git pull: kéo code hiện có về máy 
+- git clone "link": clone về máy
+- git status: trạng thái
