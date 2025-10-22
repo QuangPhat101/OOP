@@ -6,13 +6,13 @@
 #include <expected>
 #include <regex>
 #include <sstream>
-#include <math.h>
 using std::cout, std::cin;
 using std::expected, std::unexpected;
 using std::format;
 using std::regex, std::regex_match, std::smatch;
 using std::string;
 using std::stringstream;
+using std::endl;
 
 #include "../dto/Fraction.h"
 

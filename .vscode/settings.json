@@ -65,5 +65,7 @@
         "typeinfo": "cpp",
         "variant": "cpp",
         "text_encoding": "cpp"
-    }
+    },
+    "python-envs.defaultEnvManager": "ms-python.python:system",
+    "python-envs.pythonProjects": []
 }

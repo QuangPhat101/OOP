@@ -5,33 +5,25 @@ string ui::toString(const Fraction &frac)
     if (frac.getDenominator() == 1)
         return format("{}", frac.getNumerator());
 
-    if (abs(frac.getNumerator()) > abs(frac.getDenominator()))
+    if (frac.getNumerator() > frac.getDenominator())
     {
-        int wholePart = abs(frac.getNumerator()) / abs(frac.getDenominator());
-        int num = abs(frac.getNumerator()) - wholePart * abs(frac.getDenominator());
-        if(frac.getNumerator() < 0)
-            wholePart = -wholePart;
+        int wholePart = frac.getNumerator() / frac.getDenominator();
+        int num = frac.getNumerator() - wholePart * frac.getDenominator();
         return format("{} {}/{}", wholePart, num, frac.getDenominator());
     }
 
     return format("{}/{}", frac.getNumerator(), frac.getDenominator());
 }
-
 expected<Fraction, string> ui::fromString(const string &str)
 {
     if (str.empty())
-    {
         return unexpected("Invalid input data");
-    }
 
     regex pattern(R"(^\s*(-?\d+)\s*/\s*(-?\d+)\s*$)");
     smatch match;
 
-    bool matched = regex_match(str, match, pattern);
-    if (!matched)
-    {
+    if (!regex_match(str, match, pattern))
         return unexpected("Invalid format data");
-    }
 
     int num = stoi(match[1].str());
     int deno = stoi(match[2].str());
