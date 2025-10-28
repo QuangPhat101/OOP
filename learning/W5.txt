@@ -1,0 +1,13 @@
+I. Problem analysis: 
+ (1)INPUT 
+ (2)output 
+ (3)operators: cách biến đổi từ input thành output
+ (4)constraint(limit) 
+ (5)success criteria (time, memory): lập ra test plan(test cái gì kh test cái gì), test case 
+
+II. Function pointer (dùng để tổng quát hóa chương trình) Con trỏ hàm
+- VD: bool* valid(string), float* check(int): đây là function prototypes(Nguyên mẫu hàm)
+- Con trỏ hàm thực sự: 
+ + bool (*valid)(int, int) -> dùng để quản lí tất cả hàm nhận vào 2 int trả về bool
+ + int* (*checker)(string) -> dùng để quản lí tất cả hàm nhận vào string trả về int
+-> Nên dùng typedef cho dễ đọc: tydedef bool (*Valid)(int, int), khi gọi hàm đó chỉ cần ghi Valid 
