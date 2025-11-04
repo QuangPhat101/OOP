@@ -1,0 +1,5 @@
+- Có thể biến hàm toàn cục thành hàm trong 1 class bằng friend
+- Dùng concept 
+- Pass by value / reference  
+- Function call stack (có trong đề thi năm ngoái)
+- deep copy: khi đã viết 1 trong 3 hàm: hủy, copy constructor, copy assignment operator thì bắt buộc viết đủ cả 3(đi thi có thể bị gài chỉ viết 1 hàm)
