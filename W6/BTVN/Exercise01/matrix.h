@@ -3,7 +3,7 @@
 
 #include <iostream>
 using std::ostream;
-using std::cout;
+
 
 class Matrix
 {
@@ -16,7 +16,8 @@ public:
     Matrix();
     ~Matrix();
     Matrix(int row, int col);
-
+    Matrix(const Matrix& other);
+   Matrix& operator=(const Matrix& other);
 public:
     void setValue(int row, int col, int value);
     int getCol() const;

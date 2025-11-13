@@ -1,4 +1,6 @@
 #include "matrix.h"
+#include <iostream>
+using std::cout;
 
 
 int main(){
@@ -12,9 +14,9 @@ int main(){
      a.setValue(1, 2, 102);
      cout << a << "\n";
 
-     // Matrix b = a; // Chú ý hàm tạo sao chép lại được gọi chứ không phải operator= được gọi
-     // b.setValue(0, 0, 234);
-     // b.setValue(1, 1, 777);
-     // cout << b;
+     Matrix b = a; // Chú ý hàm tạo sao chép lại được gọi chứ không phải operator= được gọi
+     b.setValue(0, 0, 234); 
+     b.setValue(1, 1, 777);
+     cout << b;
      return 0;
 }
