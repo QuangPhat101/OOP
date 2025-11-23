@@ -36,7 +36,7 @@ $ ./main
 
 Hàm `withdraw` như trong code hiện tại có vấn đề lớn về mặt thiết kế so với mục đích sử dụng (chỉ in ra thông báo "can withdraw"):
 
-1.  **Vi phạm nguyên tắc (Side Effect):**
+1.  **Vi phạm nguyên tắc:**
     * **Vấn đề:** Hàm thực hiện hành động trừ tiền (`_balance -= amount`) ngay khi gọi. Điều này làm thay đổi dữ liệu của đối tượng `Account`.
     * **Hậu quả:** Nếu mục đích của `App` chỉ là in ra thông báo xem "có thể rút được bao nhiêu", việc gọi hàm này sẽ vô tình làm mất tiền trong tài khoản của khách hàng thật sự. Đây là lỗi **Side Effect** (tác dụng phụ không mong muốn).
 

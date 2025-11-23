@@ -8,3 +8,4 @@ git push
 - git clone "link": clone về máy
 - git status: trạng thái
 - git remote remove origin
+git pull origin main --allow-unrelated-histories
