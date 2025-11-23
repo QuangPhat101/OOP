@@ -1,0 +1,27 @@
+CHUONG TRINH DEMO POC DO AN OOP - NHOM 16.
+Chuong trinh mo phong chuc nang check in - check out bai giu xe.
+
+THONG TIN BAI DO XE
+Ten bai do xe: HCMUS - Parking Lot
+So luong cong: 2
+So luong spot: 4
+
+Phuong tien voi bang so xe 001 dang tien vao cong 1
+Da huong dan phuong tien voi bang so xe 001 vao spot trong gan cong nhat co ID 1
+
+Phuong tien voi bang so xe 002 dang tien vao cong 2
+Da huong dan phuong tien voi bang so xe 002 vao spot trong gan cong nhat co ID 3
+
+Phuong tien voi bang so xe 003 dang tien vao cong 1
+Da huong dan phuong tien voi bang so xe 003 vao spot trong gan cong nhat co ID 2
+
+Phuong tien voi bang so xe 004 dang tien vao cong 1
+Da huong dan phuong tien voi bang so xe 004 vao spot trong gan cong nhat co ID 4
+
+Phuong tien voi bang so xe 005 dang tien vao cong 2
+Bai giu xe da day
+
+Phuong tien voi bien so xe 001 da roi bai do xe
+
+Phuong tien voi bang so xe 005 dang tien vao cong 2
+Da huong dan phuong tien voi bang so xe 005 vao spot trong gan cong nhat co ID 1

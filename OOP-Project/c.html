@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flowchart - Chatbot OOP</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 40px;
+        }
+
+        .flowchart {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            position: relative;
+        }
+
+        .column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .column-title {
+            font-weight: bold;
+            font-size: 16px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            background: #ecf0f1;
+            border-radius: 5px;
+        }
+
+        .box {
+            border: 2px solid #34495e;
+            padding: 15px 20px;
+            margin: 10px 0;
+            min-width: 200px;
+            max-width: 280px;
+            text-align: center;
+            background: white;
+            border-radius: 8px;
+            position: relative;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .box.start {
+            background: #a8e6cf;
+            border-color: #2d6a4f;
+            font-weight: bold;
+            border-radius: 20px;
+        }
+
+        .box.end {
+            background: #ffb3ba;
+            border-color: #c1121f;
+            font-weight: bold;
+            border-radius: 20px;
+        }
+
+        .box.decision {
+            background: #ffd3b6;
+            border-color: #d97706;
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+            padding: 20px 30px;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .box.process {
+            background: #bae1ff;
+            border-color: #2563eb;
+        }
+
+        .arrow {
+            width: 2px;
+            height: 20px;
+            background: #34495e;
+            margin: 0 auto;
+        }
+
+        .arrow-right {
+            position: absolute;
+            width: 80px;
+            height: 2px;
+            background: #34495e;
+            right: -80px;
+            top: 50%;
+        }
+
+        .arrow-right::after {
+            content: '→';
+            position: absolute;
+            right: -10px;
+            top: -10px;
+            font-size: 20px;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .container {
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>FLOWCHART - CHATBOT HỖ TRỢ HỌC LẬP TRÌNH</h1>
+
+        <div class="flowchart">
+            <!-- Cột 1: Luồng chính -->
+            <div class="column">
+                <div class="column-title">Luồng 1: Xử lý chính</div>
+
+                <div class="box start">Bắt đầu</div>
+                <div class="arrow"></div>
+
+                <div class="box">Khởi tạo kết nối<br>với AI server</div>
+                <div class="arrow"></div>
+
+                <div class="box">Tạo phiên<br>chat mới</div>
+                <div class="arrow"></div>
+
+                <div class="box">Hiển thị giao diện<br>chào mừng</div>
+                <div class="arrow"></div>
+
+                <div class="box process">Chờ người dùng<br>nhập input</div>
+                <div class="arrow"></div>
+
+                <div class="box decision">
+                    Kiểm tra<br>loại input?
+                </div>
+                <div class="arrow"></div>
+
+                <div class="box">Xử lý lệnh<br>/help, /clear,<br>/history, /exit</div>
+                <div class="arrow"></div>
+
+                <div class="box decision">
+                    Lệnh là<br>/exit?
+                </div>
+                <div class="arrow"></div>
+
+                <div class="box end">Kết thúc</div>
+            </div>
+
+            <!-- Cột 2: Xử lý câu hỏi -->
+            <div class="column">
+                <div class="column-title">Luồng 2: Xử lý câu hỏi</div>
+
+                <div class="box start">Nhận câu hỏi<br>từ người dùng</div>
+                <div class="arrow"></div>
+
+                <div class="box">Lưu câu hỏi<br>vào lịch sử</div>
+                <div class="arrow"></div>
+
+                <div class="box">Chuẩn bị dữ liệu<br>gửi lên server</div>
+                <div class="arrow"></div>
+
+                <div class="box">Thêm ngữ cảnh<br>từ lịch sử<br>chat trước đó</div>
+                <div class="arrow"></div>
+
+                <div class="box">Thêm system prompt<br>cho AI</div>
+                <div class="arrow"></div>
+
+                <div class="box">Đóng gói thành<br>định dạng JSON</div>
+                <div class="arrow"></div>
+
+                <div class="box process">Gửi HTTP POST<br>request tới<br>Ollama API</div>
+                <div class="arrow"></div>
+
+                <div class="box">AI server<br>xử lý yêu cầu</div>
+                <div class="arrow"></div>
+
+                <div class="box">Nhận phản hồi<br>dạng streaming</div>
+                <div class="arrow"></div>
+
+                <div class="box end">Chuyển sang<br>xử lý hiển thị</div>
+            </div>
+
+            <!-- Cột 3: Hiển thị kết quả -->
+            <div class="column">
+                <div class="column-title">Luồng 3: Hiển thị streaming</div>
+
+                <div class="box start">Nhận dữ liệu<br>streaming từ server</div>
+                <div class="arrow"></div>
+
+                <div class="box">Đọc từng phần<br>dữ liệu nhỏ (chunk)</div>
+                <div class="arrow"></div>
+
+                <div class="box">Phân tích cú pháp<br>JSON chunk</div>
+                <div class="arrow"></div>
+
+                <div class="box decision">
+                    Có lỗi khi<br>phân tích?
+                </div>
+                <div class="arrow"></div>
+
+                <div class="box">Lấy nội dung<br>văn bản từ chunk</div>
+                <div class="arrow"></div>
+
+                <div class="box process">Hiển thị từng chữ<br>lên màn hình</div>
+                <div class="arrow"></div>
+
+                <div class="box decision">
+                    Đã nhận hết<br>câu trả lời?
+                </div>
+                <div class="arrow"></div>
+
+                <div class="box">Lưu câu trả lời đầy đủ<br>vào lịch sử</div>
+                <div class="arrow"></div>
+
+                <div class="box end">Hoàn thành<br>và quay lại chờ input</div>
+            </div>
+        </div>
+
+        <div style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-radius: 8px;">
+            <h3 style="margin-top: 0;">Chú thích:</h3>
+            <ul style="line-height: 2;">
+                <li><span style="background: #a8e6cf; padding: 5px 15px; border-radius: 15px;">Màu xanh lá</span> - Điểm
+                    bắt đầu/kết thúc</li>
+                <li><span style="background: #bae1ff; padding: 5px 15px; border-radius: 5px;">Màu xanh dương</span> -
+                    Bước xử lý quan trọng</li>
+                <li><span style="background: #ffd3b6; padding: 5px 15px;">Hình thoi</span> - Điểm ra quyết định</li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>

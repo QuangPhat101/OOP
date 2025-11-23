@@ -74,6 +74,9 @@ public:
         }
         cout << '\n';
     }
+    T operator[](){
+        if (index < 0 || 
+    }
 };
 class SinhVien
 {

@@ -18,7 +18,6 @@ public:
 
     static int reduce(vector<int> numbers, Operator f, int init);
 };
-
 int main()
 {
     Integer::Operator f = Integer::add;
