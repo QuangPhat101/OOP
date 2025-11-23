@@ -1,0 +1,11 @@
+- Có thể biến hàm toàn cục thành hàm trong 1 class bằng friend, thường dùng trong trường hợp viết operator, khi viết hàm không cần class::
+- Dùng concept 
+- Pass by value / reference  
+- Function call stack (có trong đề thi năm ngoái)
+- deep copy: khi đã viết 1 trong 3 hàm: hủy, copy constructor, copy assignment operator thì bắt buộc viết đủ cả 3(đi thi có thể bị gài chỉ viết 1 hàm)
+- copy constructor: dùng để sinh ra bản sao hoàn toàn mới từ cái ban đầu
+VD: Matrix A(2, 2);
+    Matrix B = A;   
+- copy assignment operator: ghi đè dữ liệu cũ bằng 1 bản sao 
+VD: Matrix C(2, 2);
+    C = A;  
