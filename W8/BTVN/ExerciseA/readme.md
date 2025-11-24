@@ -55,3 +55,56 @@ int Account::withdraw(int amount) {
     }
     return 0;
 }
+```
+
+### 3. 
+
+```mermaid
+classDiagram
+    %% Class Account
+    class Account {
+        #string _name
+        #int _balance
+        +Account()
+        +Account(name: string, balance: int)
+        +name() string
+        +balance() int
+        +withdraw(amount: int) int
+    }
+
+    %% Class MockAccountRepository
+    class MockAccountRepository {
+        +getAll() vector~Account~
+    }
+
+    %% Class App
+    class App {
+        -vector~Account~ _accounts
+        +loadAccounts()
+        +withdraw(amount: int)
+    }
+
+    %% Mô phỏng Global Function và Constant dưới dạng Utils để thể hiện trong UML
+    class GlobalScope {
+        <<global>>
+        +const int MIN_WITHDRAW = 50000
+        +formatWithdrawOutput(withdraw: const int&) string
+    }
+
+    %% Quan hệ (Relationships)
+    
+    %% App chứa danh sách Account (Aggregation)
+    App "1" o-- "*" Account : _accounts
+
+    %% App phụ thuộc vào Repository để load dữ liệu
+    App ..> MockAccountRepository : uses (in loadAccounts)
+
+    %% Repository tạo ra các Account
+    MockAccountRepository ..> Account : creates
+
+    %% App gọi hàm formatWithdrawOutput
+    App ..> GlobalScope : calls formatWithdrawOutput
+
+    %% Account sử dụng hằng số global
+    Account ..> GlobalScope : uses MIN_WITHDRAW
+```
