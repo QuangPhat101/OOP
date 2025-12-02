@@ -1,0 +1,22 @@
+#ifndef _RECTANGLE_H_
+#define _RECTANGLE_H_
+#include "IShape.h"
+
+class Rectangle : public IShape {
+private:
+  float _width;
+  float _height;
+
+public:
+  Rectangle();
+  Rectangle(float width, float height);
+
+public:
+  float area() override;
+  float perimeter() override;
+
+public:
+  std::string toString() override;
+};
+
+#endif

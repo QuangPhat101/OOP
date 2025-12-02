@@ -1,0 +1,20 @@
+1. Tính đa hình
+- Khi thêm 1 hình (tứ giác, lục giác) vào cây kế thừa của Shape thì chương trình kh bị đổ vỡ (no break) -> plug and play
+- Lớp chỉ toàn hàm thuần ảo (tất cả đều gán hàm bằng 0 và kh có data) thì gọi là Interface. Nếu chỉ có 1 hàm thuần ảo thì là abstract class 
+- IShape: có chữ I ở đầu là interface
+- virtual: hàm ban đầu có thể mở rộng -> dùng override để kế thừa
+- IShape là DTO, cần 1 converter để chuyển sang UI vì theo S(OLID) chỉ được đảm nhiệm 1 nhiệm vụ duy nhất
+
+2. Ép kiểu (downcast / upcast) từ lớp cha về lớp con hoặc ngược lại để làm việc
+
+3. Cách xác định kiểu dữ liệu: RTTI: Run Time Type Identification
+- Viết hàm xác định: Có nhược điểm là chỉ có những kiểu cố định, nếu có thêm kiểu dữ liệu vào thì sẽ khó sửa
+-> Hàm typeid để làm tương tự
+- Hỏi đối tượng
+- Design Pattern: Visitor
+-> Bắt đối tượng nói cho ta biết nó thuộc kiểu gì (cơ chế đảo quyền điều khiển, thay vì đi hỏi thì bắt nó tự nói)  
+-> Do nạp chồng thông minh nên cách xử lí sẽ được thay đổi 1 cách linh hoạt, không cần if
+
+4. Các class kế thừa nhau nên cần phải khai báo các class trước khi định nghĩa nó (forward declaration)
+
+5. Sử dụng map để tập trung thông tin tại 1 chỗ cấu hình duy nhất, làm ngắn gọn code

@@ -1,0 +1,10 @@
+Drive / kiss / solid
+1. Drive 
+
+
+2. KISS
+
+
+
+3. SOLID
+- Single responsibility: mỗi Class chỉ đảm nhiệm 1 nhiệm vụ duy nhất (DTO, UI, BUS)
