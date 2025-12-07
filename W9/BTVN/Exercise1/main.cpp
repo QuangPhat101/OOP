@@ -34,13 +34,13 @@ int main() {
 				// Example: line = "Square: a=12"
 				vector<string> tokens = Utils::String::split(line, ": ");
 				IParsable* parser = factory.create(tokens[0]); // "Square"=> SquareParser
-        IShape* shape = dynamic_cast<IShape*> parser->parse(tokens[1]); // "a=12" => Square(_a = 12)
+        IShape* shape = dynamic_cast<IShape*> (parser->parse(tokens[1])); // "a=12" => Square(_a = 12)
         shapes.push_back(shape);
     }
 
     for (auto& shape : shapes) { // Polymorphism
-        cout << shape->toString() << ": area=" 
-            << shape->area() << ", perimeter=" 
-            << shape->perimeter() << endl;
+        auto converter = containers[typeid(*shape).name()];
+        string info = converter->convert(shape);
+        cout << info << "\n";
     }
 }
