@@ -10,6 +10,8 @@ private:
 public:
   float width();
   float height();
+  void setWidth(float width);
+  void setHeight(float height);
 
 public:
   Rectangle();
@@ -18,6 +20,7 @@ public:
 public:
   float area() override;
   float perimeter() override;
+  string toString() override;
 };
 
 #endif

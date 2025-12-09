@@ -1,15 +1,24 @@
+#include "Bus/DailyEmployeeParser.h"
+#include "Bus/ManagerParser.h"
+#include "Bus/ParserFactory.h"
+#include "Bus/ProductEmployeeParser.h"
+#include "DTO/Employee.h"
+#include "DTO/Integer.h"
+#include "UI/IntegerToCurrencyConverter.h"
 #include <iostream>
 #include <string>
 #include <vector>
+
 using std::cout;
+using std::endl;
 using std::string;
 using std::vector;
 
 int main() {
   ParserFactory factory;
-  factory.registerWith(new DailyEmployeeParser());
-  factory.registerWith(new ProductEmployeeParser());
-  factory.registerWith(new ManagerParser());
+  factory.registerWith("DailyEmployee", new DailyEmployeeParser());
+  factory.registerWith("ProductEmployee", new ProductEmployeeParser());
+  factory.registerWith("Manager", new ManagerParser());
 
   vector<string> lines = {
       "ProductEmployee productCount=790, paymentPerProduct=20000",
@@ -19,7 +28,7 @@ int main() {
       "Manager employeeCount=49, paymentPerEmployee=500000, baseSalary=6000000",
       "DailyEmployee dayCount=22, paymentPerPay=1100000",
       "Manager employeeCount=37, paymentPerEmployee=500000, "
-      "baseSsalary=7000000",
+      "baseSalary=7000000",
       "DailyEmployee dayCount=18, paymentPerPay=1500000",
       "Manager employeeCount=30, paymentPerEmployee=500000, "
       "baseSalary=5000000"};
@@ -46,4 +55,7 @@ int main() {
     cout << employee->toString() << ", salary:" << converter.convert(value)
          << endl;
   }
+
+  for (auto emp : employees)
+    delete emp;
 }

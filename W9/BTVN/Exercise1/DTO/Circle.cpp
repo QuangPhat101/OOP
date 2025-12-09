@@ -5,6 +5,8 @@ Circle::Circle() {
 }
 Circle::Circle(float radius) { this->_radius = radius; }
 
+void Circle::setRadius(float radius) { this->_radius = radius; }
+
 float Circle::area() {
   float s = 3.14 * _radius * _radius;
   return s;
@@ -16,3 +18,7 @@ float Circle::perimeter() {
 }
 
 float Circle::radius() { return _radius; }
+string Circle::toString() {
+  return format("Circle: radius = {}, area = {}, perimeter = {}", _radius,
+                area(), perimeter());
+}

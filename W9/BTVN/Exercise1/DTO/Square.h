@@ -13,10 +13,12 @@ public:
 public:
   Square();
   Square(float side);
+  void setSide(float side);
 
 public:
   float area() override;
   float perimeter() override;
+  string toString() override;
 };
 
 #endif

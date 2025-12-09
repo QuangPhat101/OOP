@@ -1,46 +1,54 @@
+#include "Bus/CircleParser.h"
+#include "Bus/IParsable.h"
+#include "Bus/ParserFactory.h"
+#include "Bus/RectangleParser.h"
+#include "Bus/SquareParser.h"
+#include "DTO/Circle.h"
+#include "DTO/IShape.h"
+#include "DTO/Rectangle.h"
+#include "DTO/Square.h"
+#include "Helper/Utils.h"
 #include <iostream>
+#include <map>
 #include <string>
 #include <vector>
-#include "IShape.h"
-#include "Circle.h"
-#include "Rectangle.h"
-#include "Square.h"
-#include "Utils.h"
-#include "ParserFactory.h"
-#include "IParsable.h"
-using std::cout, std::cin;
-using std::vector;
-using std::string;
-using std::endl;
 
+using std::cout, std::cin;
+using std::endl;
+using std::string;
+using std::vector;
 
 int main() {
-    ParserFactory factory; // We inject what we want to work with here
-    factory.registerWith(new RectangleParser());
-    factory.registerWith(new SquareParser());
-    factory.registerWith(new CirleParser());
-    vector<string> lines = {
-        "Square: a=12",
-        "Circle: r=12",
-        "Square: a=7",
-        "Rectangle: w=3, h=4",
-        "Rectangle: w=6, h=8",
-        "Circle: r=5",
-        "Square: a=8"
-    };
-    vector<IShape*> shapes;
+  // Input
+  vector<string> lines = {"Square: a=12",        "Circle: r=12",
+                          "Square: a=7",         "Rectangle: w=3, h=4",
+                          "Rectangle: w=6, h=8", "Circle: r=5",
+                          "Square: a=8"};
 
-    for (auto& line : lines) {
-				// Example: line = "Square: a=12"
-				vector<string> tokens = Utils::String::split(line, ": ");
-				IParsable* parser = factory.create(tokens[0]); // "Square"=> SquareParser
-        IShape* shape = dynamic_cast<IShape*> (parser->parse(tokens[1])); // "a=12" => Square(_a = 12)
-        shapes.push_back(shape);
-    }
+  ParserFactory factory;
+  factory.registerWith(new SquareParser());
+  factory.registerWith(new CircleParser());
+  factory.registerWith(new RectangleParser());
 
-    for (auto& shape : shapes) { // Polymorphism
-        auto converter = containers[typeid(*shape).name()];
-        string info = converter->convert(shape);
-        cout << info << "\n";
+  vector<IShape *> shapes;
+
+  for (auto &line : lines) {
+    // Line: "Square: a=12"
+    vector<string> tokens = Utils::String::split(line, ": ");
+    IParsable *parser = factory.create(tokens[0]); // "Square"
+
+    if (parser != nullptr) {
+      IShape *shape = dynamic_cast<IShape *>(parser->parse(tokens[1]));
+      shapes.push_back(shape);
     }
+  }
+
+  // Output: Không dùng Converter, gọi trực tiếp hàm của Shape
+  for (auto &shape : shapes) {
+    cout << shape->toString() << "\n";
+  }
+
+  // Dọn dẹp bộ nhớ
+  for (auto s : shapes)
+    delete s;
 }

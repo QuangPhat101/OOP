@@ -12,10 +12,12 @@ public:
 
 public:
   float radius();
+  void setRadius(float radius);
 
 public:
   float area() override;
   float perimeter() override;
+  string toString() override;
 };
 
 #endif
