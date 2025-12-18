@@ -1,25 +1,39 @@
+#include "FillEnum.h"
+#include "IShape.h"
+#include "Rectangle.h"
+#include "RectangleDecorator.h"
+#include "ShapeDecorator.h"
+#include "Square.h"
+#include "SquareDecorator.h"
 #include <iostream>
+#include <sstream>
+#include <string>
+#include <vector>
 using namespace std;
 
-void find(int x) {
-  int count = 1;
-  int value;
-  while (count <= 30) {
-    cout << " Nhập câu trả lời: ";
-    cin >> value;
-    if (value < x) {
-      cout << "Yes\n";
-    } else if (value > x)
-      cout << "No\n";
-    else
-      break;
-  }
-  if (value == x)
-    cout << "Tìm thấy\n";
-  else
-    cout << "Không tìm thấy\n";
-}
 int main() {
-  find(1000000);
+  std::vector<IShape *> shapes = {
+      new Rectangle(10, 6),
+      new Square(5),
+      new Rectangle(8, 5),
+      new Square(3),
+  };
+  for (auto shape : shapes) {
+    cout << shape->toString() << endl;
+  }
+  std::vector<ShapeDecorator *> shapesDecorator = {
+      new RectangleDecorator(shapes[0], FillEnum::Solid, '*'),
+      new SquareDecorator(shapes[1], FillEnum::Solid, '+'),
+      new RectangleDecorator(shapes[2], FillEnum::Hollow, '@'),
+      new SquareDecorator(shapes[3], FillEnum::Hollow, '-'),
+  };
+  for (auto shapeDecorator : shapesDecorator) {
+    shapeDecorator->draw();
+  }
+  for (auto *shapeDecorator : shapesDecorator) {
+    delete shapeDecorator;
+  }
+  for (IShape *shape : shapes)
+    delete shape;
   return 0;
 }
