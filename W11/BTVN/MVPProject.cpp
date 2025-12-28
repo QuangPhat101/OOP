@@ -14,8 +14,9 @@ double MVPProject::calculateSponsor() const {
          (this->_mktMonths * this->_mktCostPerMonth);
 }
 string MVPProject::toString() const {
-  return format("Sản phẩm     | {}    | Vận hành : {} tháng.Marketing : {} "
-                "tháng  | ${}       ",
-                this->_projectName, this->_runMonths, this->_mktMonths,
-                this->calculateSponsor());
+  return format(
+      "{0:<20} | {1:<20} | {2:<51} | ${3:<20}", "Sản Phẩm", this->_projectName,
+      "Vận hành: " + to_string((long)this->_runMonths) +
+          " tháng. Marketing: " + to_string((long)this->_mktMonths) + " tháng",
+      to_string((long)this->calculateSponsor()));
 }

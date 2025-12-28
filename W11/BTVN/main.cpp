@@ -54,8 +54,18 @@ int main() {
   file.close();
   cout << "Kế hoạch tài trợ dự án startup nội bộ công ty AlphaTech \nTháng: "
           "05/2025\n\n";
-  cout << "STT  | Loại dự án     | Tên dự án    | Thông tin             | Kinh "
-          "phí       "
-          "\n------------------------------------------------------------------"
-          "------------------------";
+  cout << format("{0:<8} | {1:<21} | {2:<24} | {3:<47} | {4:<20}", "STT",
+                 "Loại dự án", "Tên dự án", "Thông tin", "Kinh phí");
+  cout << "\n------------------------------------------------------------------"
+          "------------------------------------------------\n";
+  double Total = 0;
+  for (int i = 0; i < projects.size(); i++) {
+    cout << format("{0:<8} | {1}\n", i + 1, projects[i]->toString());
+    Total += projects[i]->calculateSponsor();
+  }
+  cout << format("\nTổng kinh phí tài trợ: ${}\n", Total);
+  for (auto &project : projects) {
+    delete project;
+  }
+  return 0;
 }

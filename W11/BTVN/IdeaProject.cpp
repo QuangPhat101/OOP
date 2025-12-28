@@ -9,7 +9,8 @@ double IdeaProject::calculateSponsor() const {
   return _developMonths * _devCost;
 }
 string IdeaProject::toString() const {
-  return format(
-      "Ý tưởng    | {}    | Phát triển : {} tháng         | ${}       ",
-      this->_projectName, this->_developMonths, this->calculateSponsor());
+  return format("{0:<20} | {1:<20} | {2:<50} | ${3:<20}", "Ý tưởng",
+                this->_projectName,
+                "Phát triển: " + to_string(this->_developMonths) + " tháng",
+                to_string((long)this->calculateSponsor()));
 }
