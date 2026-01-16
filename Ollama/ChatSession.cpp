@@ -61,7 +61,6 @@ void ChatSession::sendUserMessage(const std::string& message) {
     
     // Hiển thị tin nhắn người dùng
     Message userMsg("user", message);
-    userMsg.display();
     
     // Gửi đến AI và nhận phản hồi (streaming)
     std::string response = client->sendMessage(history, message);
