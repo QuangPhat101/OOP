@@ -1,4 +1,0 @@
-- Tất cả các hàm .h include các thư viện, còn .cpp thì chỉ include .h
-- Hàm main chỉ vài dòng, ko định nghĩa cái gì, có nhiêu thì đưa vào usecase
-- Tĩnh thực chất là toàn cục (hàm, biến static)
-- unit test gồm: hàm, lớp, usecase

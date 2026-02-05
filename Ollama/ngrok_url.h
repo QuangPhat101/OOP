@@ -3,6 +3,7 @@
 
 #include <string>
 
-const std::string OLLAMA_API_URL = "https://dionna-squarelike-centrically.ngrok-free.dev/api/chat";
+const std::string OLLAMA_API_URL =
+    "https://dionna-squarelike-centrically.ngrok-free.dev/api/chat";
 
 #endif
